@@ -1,0 +1,4 @@
+<repast.simphony.userpanel.ui.DefaultUserPanelDescriptor simphonyVersion="2.8.0">
+  <name>Custom Panel</name>
+  <userPanelCreator>beehive.factories.ReLogoPanelCreator</userPanelCreator>
+</repast.simphony.userpanel.ui.DefaultUserPanelDescriptor>
