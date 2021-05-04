@@ -37,6 +37,15 @@ class UserObserver extends ReLogoObserver{
 			ask(patches()){
 				setPcolor(scaleColor(105,honey,0,12))
 			}
+			def noPower = true
+			for (bee in bees()) {
+				if (bee.power>0) {
+					noPower = false
+				}
+			}
+			if(noPower == true) {
+				stop()
+			}
 		}
 
 		def collectedHoney(){
