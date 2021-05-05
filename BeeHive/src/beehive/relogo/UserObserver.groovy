@@ -20,7 +20,13 @@ class UserObserver extends ReLogoObserver{
 			createBees(numBees){
 				setxy (0, 0)
 			}
-			def P = nOf(10,patches())
+            
+			def closePatches = patch(0,0).inRadius(patches(), 10)
+			def distancePatches = patches()
+			for(p in closePatches) {
+				p.other(distancePatches)
+			}
+			def P = nOf(10,distancePatches) 
 			ask(P){
 				honey = 10
 				recolorPatch()
