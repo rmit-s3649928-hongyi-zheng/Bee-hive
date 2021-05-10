@@ -14,15 +14,20 @@ import repast.simphony.relogo.schedule.Setup
 class Bee extends ReLogoTurtle {
 	 def carriedHoney = 0
 	 def collectedHoney = 0
-	 def power = 500
+	 def power = 300
 	 def currentTask = "searching"
+	 def vision = 3
+	 def powerusage = 1
 	 def step()
 	{   
+		if(vision == 3) {
+			setColor(10)
+		}
 		if(power > 0) { 
-			power--
+			power -= powerusage
 			def found = false
 			if(currentTask == "searching") {
-				for(patchInVision in inRadius(patches(),1)) {
+				for(patchInVision in inRadius(patches(),vision)) {
 					if(patchInVision.honey > 0) {
 						if(patchInVision.distance(patch(0,0)) > 1) {
 							found = true
@@ -62,6 +67,10 @@ class Bee extends ReLogoTurtle {
 			}
 		}
 		
+	}
+	
+	def setVision(int vision) {
+		this.vision = vision
 	}
 		
 		

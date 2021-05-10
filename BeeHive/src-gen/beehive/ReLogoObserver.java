@@ -465,5 +465,26 @@ public class ReLogoObserver extends BaseObserver{
 		repast.simphony.relogo.ReLogoModel.getInstance().setModelParam("numBees ",value);
 	}
 
+	/**
+	 * Returns the value of the global variable insectVision.
+	 *
+	 * @return the value of the global variable insectVision
+	 */
+	@ReLogoBuilderGeneratedFor("global: insectVision")
+	public Object getInsectVision(){
+		return repast.simphony.relogo.ReLogoModel.getInstance().getModelParam("insectVision");
+	}
+
+	/**
+	 * Sets the value of the global variable insectVision.
+	 *
+	 * @param value
+	 *            a value
+	 */
+	@ReLogoBuilderGeneratedFor("global: insectVision")
+	public void setInsectVision(Object value){
+		repast.simphony.relogo.ReLogoModel.getInstance().setModelParam("insectVision",value);
+	}
+
 
 }

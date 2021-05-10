@@ -20,7 +20,9 @@ class UserObserver extends ReLogoObserver{
 			createBees(numBees){
 				setxy (0, 0)
 			}
-            
+            ask(bees()){
+				setVision(insectVision)
+			}
 			def closePatches = patch(0,0).inRadius(patches(), 10)
 			def distancePatches = patches()
 			for(p in closePatches) {

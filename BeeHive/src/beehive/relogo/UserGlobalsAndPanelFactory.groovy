@@ -24,6 +24,7 @@ public class UserGlobalsAndPanelFactory extends AbstractReLogoGlobalsAndPanelFac
 	        
 		 */
 		addSliderWL ("numBees ", " Number of Bees ", 1 , 1 , 50 , 10)
+		addSliderWL ("insectVision", " Vision ", 1 , 1 , 10 , 3)
 		addMonitorWL("collectedHoney", " Collected Honey ", 5)
 		
 	}
