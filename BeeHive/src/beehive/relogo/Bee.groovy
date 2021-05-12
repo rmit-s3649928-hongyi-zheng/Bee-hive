@@ -20,9 +20,7 @@ class Bee extends ReLogoTurtle {
 	 def powerusage = 1
 	 def step()
 	{   
-		if(vision == 3) {
-			setColor(10)
-		}
+		setColor(15)
 		if(power > 0) { 
 			power -= powerusage
 			def found = false

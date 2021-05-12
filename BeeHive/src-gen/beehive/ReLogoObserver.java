@@ -202,6 +202,193 @@ public class ReLogoObserver extends BaseObserver{
 	}
 
 	/**
+	 * Makes a number of randomly oriented followers and then executes a set of commands on the
+	 * created followers.
+	 * 
+	 * @param number
+	 *            a number
+	 * @param closure
+	 *            a set of commands
+	 * @return created followers
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.Follower")
+	public AgentSet<beehive.relogo.Follower> createFollowers(int number, Closure closure) {
+		AgentSet<beehive.relogo.Follower> result = new AgentSet<>();
+		AgentSet<Turtle> createResult = this.crt(number,closure,"Follower");
+		for (Turtle t : createResult){
+			if (t instanceof beehive.relogo.Follower){
+				result.add((beehive.relogo.Follower)t);
+			}
+		} 
+		return result; 
+	}
+
+	/**
+	 * Makes a number of randomly oriented followers and then executes a set of commands on the
+	 * created followers.
+	 * 
+	 * @param number
+	 *            a number
+	 * @param closure
+	 *            a set of commands
+	 * @return created followers
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.Follower")
+	public AgentSet<beehive.relogo.Follower> createFollowers(int number) {
+		return createFollowers(number,null);
+	}
+
+	/**
+	 * Makes a number of uniformly fanned followers and then executes a set of commands on the
+	 * created followers.
+	 * 
+	 * @param number
+	 *            a number
+	 * @param closure
+	 *            a set of commands
+	 * @return created followers
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.Follower")
+	public AgentSet<beehive.relogo.Follower> createOrderedFollowers(int number, Closure closure) {
+		AgentSet<beehive.relogo.Follower> result = new AgentSet<>();
+		AgentSet<Turtle> createResult = this.cro(number,closure,"Follower");
+		for (Turtle t : createResult){
+			if (t instanceof beehive.relogo.Follower){
+				result.add((beehive.relogo.Follower)t);
+			}
+		} 
+		return result; 
+	}
+
+	/**
+	 * Makes a number of uniformly fanned followers and then executes a set of commands on the
+	 * created followers.
+	 * 
+	 * @param number
+	 *            a number
+	 * @param closure
+	 *            a set of commands
+	 * @return created followers
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.Follower")
+	public AgentSet<beehive.relogo.Follower> createOrderedFollowers(int number) {
+		return createOrderedFollowers(number,null);
+	}
+
+	/**
+	 * Queries if object is a follower.
+	 * 
+	 * @param o
+	 *            an object
+	 * @return true or false based on whether the object is a follower
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.Follower")
+	public boolean isFollowerQ(Object o){
+		return (o instanceof beehive.relogo.Follower);
+	}
+
+	/**
+	 * Returns an agentset containing all followers.
+	 * 
+	 * @return agentset of all followers
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.Follower")
+	public AgentSet<beehive.relogo.Follower> followers(){
+		AgentSet<beehive.relogo.Follower> a = new AgentSet<beehive.relogo.Follower>();
+		for (Object e : this.getContext().getObjects(beehive.relogo.Follower.class)) {
+			if (e instanceof beehive.relogo.Follower){
+				a.add((beehive.relogo.Follower)e);
+			}
+		}
+		return a;
+	}
+
+	/**
+	 * Returns the follower with the given who number.
+	 * 
+	 * @param number
+	 *            a number
+	 * @return turtle number
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.Follower")
+	public beehive.relogo.Follower follower(Number number){
+		Turtle turtle = Utility.turtleU(number.intValue(), this);
+		if (turtle instanceof beehive.relogo.Follower)
+			return (beehive.relogo.Follower) turtle;
+		return null;
+	}
+
+	/**
+	 * Returns an agentset of followers on a given patch.
+	 * 
+	 * @param p
+	 *            a patch
+	 * @return agentset of followers on patch p
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.Follower")
+	public AgentSet<beehive.relogo.Follower> followersOn(Patch p){
+		AgentSet<beehive.relogo.Follower> result = new AgentSet<beehive.relogo.Follower>();						
+		for (Turtle t : Utility.getTurtlesOnGridPoint(p.getGridLocation(),this,"follower")){
+			if (t instanceof beehive.relogo.Follower)
+			result.add((beehive.relogo.Follower)t);
+		}
+		return result;
+	}
+
+	/**
+	 * Returns an agentset of followers on the same patch as a turtle.
+	 * 
+	 * @param t
+	 *            a turtle
+	 * @return agentset of followers on the same patch as turtle t
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.Follower")
+	public AgentSet<beehive.relogo.Follower> followersOn(Turtle t){
+		AgentSet<beehive.relogo.Follower> result = new AgentSet<beehive.relogo.Follower>();						
+		for (Turtle tt : Utility.getTurtlesOnGridPoint(Utility.ndPointToGridPoint(t.getTurtleLocation()),this,"follower")){
+			if (tt instanceof beehive.relogo.Follower)
+			result.add((beehive.relogo.Follower)tt);
+		}
+		return result;
+	}
+
+	/**
+	 * Returns an agentset of followers on the patches in a collection or on the patches
+	 * that a collection of turtles are.
+	 * 
+	 * @param a
+	 *            a collection
+	 * @return agentset of followers on the patches in collection a or on the patches
+	 *         that collection a turtles are
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.Follower")
+	public AgentSet<beehive.relogo.Follower> followersOn(Collection c){
+
+		if (c == null || c.isEmpty()){
+			return new AgentSet<beehive.relogo.Follower>();
+		}
+
+		Set<beehive.relogo.Follower> total = new HashSet<beehive.relogo.Follower>();
+		if (c.iterator().next() instanceof Turtle){
+			for (Object o : c){
+				if (o instanceof Turtle){
+					Turtle t = (Turtle) o;
+					total.addAll(followersOn(t));
+				}
+			}
+		}
+		else {
+			for (Object o : c){
+				if (o instanceof Patch){
+					Patch p = (Patch) o;
+					total.addAll(followersOn(p));
+				}
+			}
+		}
+		return new AgentSet<beehive.relogo.Follower>(total);
+	}
+
+	/**
 	 * Makes a number of randomly oriented userTurtles and then executes a set of commands on the
 	 * created userTurtles.
 	 * 

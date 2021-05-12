@@ -23,6 +23,17 @@ class UserObserver extends ReLogoObserver{
             ask(bees()){
 				setVision(insectVision)
 			}
+			for (bee in bees()) {
+				createFollowers(2){
+					setxy(0,0)
+				}
+				ask(followers()){
+					if(leader == null) {
+						setLeader(bee)
+					}
+				}
+			}
+
 			def closePatches = patch(0,0).inRadius(patches(), 10)
 			def distancePatches = patches()
 			for(p in closePatches) {
@@ -39,6 +50,9 @@ class UserObserver extends ReLogoObserver{
 	
 		@Go
 		def go(){
+			ask(followers()){
+				step()
+			}
 			ask(bees()){
 				step()
 			}
