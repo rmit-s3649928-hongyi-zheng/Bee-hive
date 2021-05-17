@@ -23,8 +23,9 @@ public class UserGlobalsAndPanelFactory extends AbstractReLogoGlobalsAndPanelFac
 	        addStateChangeButtonWL("changeSomething","Change Something")
 	        
 		 */
-		addSliderWL ("numBees ", " Number of Bees ", 1 , 1 , 50 , 10)
+		addSliderWL ("numBees ", " Number of Bees ", 1 , 1 , 30 , 10)
 		addSliderWL ("insectVision", " Vision ", 1 , 1 , 10 , 3)
+		addSliderWL ("numFollowers", " Number of Followers ", 0 , 1 , 5 , 0)
 		addMonitorWL("collectedHoney", " Collected Honey ", 5)
 		
 	}

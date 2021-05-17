@@ -24,7 +24,7 @@ class UserObserver extends ReLogoObserver{
 				setVision(insectVision)
 			}
 			for (bee in bees()) {
-				createFollowers(2){
+				createFollowers(numFollowers){
 					setxy(0,0)
 				}
 				ask(followers()){

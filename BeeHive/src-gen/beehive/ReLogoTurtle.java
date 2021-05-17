@@ -1006,5 +1006,26 @@ public class ReLogoTurtle extends BaseTurtle{
 		repast.simphony.relogo.ReLogoModel.getInstance().setModelParam("insectVision",value);
 	}
 
+	/**
+	 * Returns the value of the global variable numFollowers.
+	 *
+	 * @return the value of the global variable numFollowers
+	 */
+	@ReLogoBuilderGeneratedFor("global: numFollowers")
+	public Object getNumFollowers(){
+		return repast.simphony.relogo.ReLogoModel.getInstance().getModelParam("numFollowers");
+	}
+
+	/**
+	 * Sets the value of the global variable numFollowers.
+	 *
+	 * @param value
+	 *            a value
+	 */
+	@ReLogoBuilderGeneratedFor("global: numFollowers")
+	public void setNumFollowers(Object value){
+		repast.simphony.relogo.ReLogoModel.getInstance().setModelParam("numFollowers",value);
+	}
+
 
 }
