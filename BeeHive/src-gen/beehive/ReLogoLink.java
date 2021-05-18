@@ -241,6 +241,232 @@ public class ReLogoLink<T> extends BaseLink<T>	{
 	}
 
 	/**
+	 * Returns an agentset of implicitBees on a given patch.
+	 * 
+	 * @param p
+	 *            a patch
+	 * @return agentset of implicitBees on patch p
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.ImplicitBee")
+	public AgentSet<beehive.relogo.ImplicitBee> implicitBeesOn(Patch p){
+		AgentSet<beehive.relogo.ImplicitBee> result = new AgentSet<beehive.relogo.ImplicitBee>();						
+		for (Turtle t : Utility.getTurtlesOnGridPoint(p.getGridLocation(),getMyObserver(),"implicitBee")){
+			if (t instanceof beehive.relogo.ImplicitBee)
+			result.add((beehive.relogo.ImplicitBee)t);
+		}
+		return result;
+	}
+
+	/**
+	 * Returns an agentset of implicitBees on the same patch as a turtle.
+	 * 
+	 * @param t
+	 *            a turtle
+	 * @return agentset of implicitBees on the same patch as turtle t
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.ImplicitBee")
+	public AgentSet<beehive.relogo.ImplicitBee> implicitBeesOn(Turtle t){
+		AgentSet<beehive.relogo.ImplicitBee> result = new AgentSet<beehive.relogo.ImplicitBee>();						
+		for (Turtle tt : Utility.getTurtlesOnGridPoint(Utility.ndPointToGridPoint(t.getTurtleLocation()),getMyObserver(),"implicitBee")){
+			if (tt instanceof beehive.relogo.ImplicitBee)
+			result.add((beehive.relogo.ImplicitBee)tt);
+		}
+		return result;
+	}
+
+	/**
+	 * Returns an agentset of implicitBees on the patches in a collection or on the patches
+	 * that a collection of turtles are.
+	 * 
+	 * @param a
+	 *            a collection
+	 * @return agentset of implicitBees on the patches in collection a or on the patches
+	 *         that collection a turtles are
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.ImplicitBee")
+	public AgentSet<beehive.relogo.ImplicitBee> implicitBeesOn(Collection c){
+
+		if (c == null || c.isEmpty()){
+			return new AgentSet<beehive.relogo.ImplicitBee>();
+		}
+
+		Set<beehive.relogo.ImplicitBee> total = new HashSet<beehive.relogo.ImplicitBee>();
+		if (c.iterator().next() instanceof Turtle){
+			for (Object o : c){
+				if (o instanceof Turtle){
+					Turtle t = (Turtle) o;
+					total.addAll(implicitBeesOn(t));
+				}
+			}
+		}
+		else {
+			for (Object o : c){
+				if (o instanceof Patch){
+					Patch p = (Patch) o;
+					total.addAll(implicitBeesOn(p));
+				}
+			}
+		}
+		return new AgentSet<beehive.relogo.ImplicitBee>(total);
+	}
+
+	/**
+	 * Queries if object is a implicitBee.
+	 * 
+	 * @param o
+	 *            an object
+	 * @return true or false based on whether the object is a implicitBee
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.ImplicitBee")
+	public boolean isImplicitBeeQ(Object o){
+		return (o instanceof beehive.relogo.ImplicitBee);
+	}
+
+	/**
+	 * Returns the implicitBee with the given who number.
+	 * 
+	 * @param number
+	 *            a number
+	 * @return turtle number
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.ImplicitBee")
+	public beehive.relogo.ImplicitBee implicitBee(Number number){
+		Turtle turtle = Utility.turtleU(number.intValue(), getMyObserver());
+		if (turtle instanceof beehive.relogo.ImplicitBee)
+			return (beehive.relogo.ImplicitBee) turtle;
+		return null;
+	}
+
+	/**
+	 * Returns an agentset containing all implicitBees.
+	 * 
+	 * @return agentset of all implicitBees
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.ImplicitBee")
+	public AgentSet<beehive.relogo.ImplicitBee> implicitBees(){
+		AgentSet<beehive.relogo.ImplicitBee> a = new AgentSet<beehive.relogo.ImplicitBee>();
+		for (Object e : this.getMyObserver().getContext().getObjects(beehive.relogo.ImplicitBee.class)) {
+			if (e instanceof beehive.relogo.ImplicitBee){
+				a.add((beehive.relogo.ImplicitBee)e);
+			}
+		}
+		return a;
+	}
+
+	/**
+	 * Returns an agentset of passiveActionBees on a given patch.
+	 * 
+	 * @param p
+	 *            a patch
+	 * @return agentset of passiveActionBees on patch p
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.PassiveActionBee")
+	public AgentSet<beehive.relogo.PassiveActionBee> passiveActionBeesOn(Patch p){
+		AgentSet<beehive.relogo.PassiveActionBee> result = new AgentSet<beehive.relogo.PassiveActionBee>();						
+		for (Turtle t : Utility.getTurtlesOnGridPoint(p.getGridLocation(),getMyObserver(),"passiveActionBee")){
+			if (t instanceof beehive.relogo.PassiveActionBee)
+			result.add((beehive.relogo.PassiveActionBee)t);
+		}
+		return result;
+	}
+
+	/**
+	 * Returns an agentset of passiveActionBees on the same patch as a turtle.
+	 * 
+	 * @param t
+	 *            a turtle
+	 * @return agentset of passiveActionBees on the same patch as turtle t
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.PassiveActionBee")
+	public AgentSet<beehive.relogo.PassiveActionBee> passiveActionBeesOn(Turtle t){
+		AgentSet<beehive.relogo.PassiveActionBee> result = new AgentSet<beehive.relogo.PassiveActionBee>();						
+		for (Turtle tt : Utility.getTurtlesOnGridPoint(Utility.ndPointToGridPoint(t.getTurtleLocation()),getMyObserver(),"passiveActionBee")){
+			if (tt instanceof beehive.relogo.PassiveActionBee)
+			result.add((beehive.relogo.PassiveActionBee)tt);
+		}
+		return result;
+	}
+
+	/**
+	 * Returns an agentset of passiveActionBees on the patches in a collection or on the patches
+	 * that a collection of turtles are.
+	 * 
+	 * @param a
+	 *            a collection
+	 * @return agentset of passiveActionBees on the patches in collection a or on the patches
+	 *         that collection a turtles are
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.PassiveActionBee")
+	public AgentSet<beehive.relogo.PassiveActionBee> passiveActionBeesOn(Collection c){
+
+		if (c == null || c.isEmpty()){
+			return new AgentSet<beehive.relogo.PassiveActionBee>();
+		}
+
+		Set<beehive.relogo.PassiveActionBee> total = new HashSet<beehive.relogo.PassiveActionBee>();
+		if (c.iterator().next() instanceof Turtle){
+			for (Object o : c){
+				if (o instanceof Turtle){
+					Turtle t = (Turtle) o;
+					total.addAll(passiveActionBeesOn(t));
+				}
+			}
+		}
+		else {
+			for (Object o : c){
+				if (o instanceof Patch){
+					Patch p = (Patch) o;
+					total.addAll(passiveActionBeesOn(p));
+				}
+			}
+		}
+		return new AgentSet<beehive.relogo.PassiveActionBee>(total);
+	}
+
+	/**
+	 * Queries if object is a passiveActionBee.
+	 * 
+	 * @param o
+	 *            an object
+	 * @return true or false based on whether the object is a passiveActionBee
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.PassiveActionBee")
+	public boolean isPassiveActionBeeQ(Object o){
+		return (o instanceof beehive.relogo.PassiveActionBee);
+	}
+
+	/**
+	 * Returns the passiveActionBee with the given who number.
+	 * 
+	 * @param number
+	 *            a number
+	 * @return turtle number
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.PassiveActionBee")
+	public beehive.relogo.PassiveActionBee passiveActionBee(Number number){
+		Turtle turtle = Utility.turtleU(number.intValue(), getMyObserver());
+		if (turtle instanceof beehive.relogo.PassiveActionBee)
+			return (beehive.relogo.PassiveActionBee) turtle;
+		return null;
+	}
+
+	/**
+	 * Returns an agentset containing all passiveActionBees.
+	 * 
+	 * @return agentset of all passiveActionBees
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.PassiveActionBee")
+	public AgentSet<beehive.relogo.PassiveActionBee> passiveActionBees(){
+		AgentSet<beehive.relogo.PassiveActionBee> a = new AgentSet<beehive.relogo.PassiveActionBee>();
+		for (Object e : this.getMyObserver().getContext().getObjects(beehive.relogo.PassiveActionBee.class)) {
+			if (e instanceof beehive.relogo.PassiveActionBee){
+				a.add((beehive.relogo.PassiveActionBee)e);
+			}
+		}
+		return a;
+	}
+
+	/**
 	 * Returns an agentset of userTurtles on a given patch.
 	 * 
 	 * @param p
@@ -407,6 +633,27 @@ public class ReLogoLink<T> extends BaseLink<T>	{
 	@ReLogoBuilderGeneratedFor("beehive.relogo.UserLink")
 	public beehive.relogo.UserLink userLink(Turtle oneEnd, Turtle otherEnd) {
 		return userLink(oneEnd.getWho(), otherEnd.getWho());
+	}
+
+	/**
+	 * Returns the value of the global variable communicationType.
+	 *
+	 * @return the value of the global variable communicationType
+	 */
+	@ReLogoBuilderGeneratedFor("global: communicationType")
+	public Object getCommunicationType(){
+		return repast.simphony.relogo.ReLogoModel.getInstance().getModelParam("communicationType");
+	}
+
+	/**
+	 * Sets the value of the global variable communicationType.
+	 *
+	 * @param value
+	 *            a value
+	 */
+	@ReLogoBuilderGeneratedFor("global: communicationType")
+	public void setCommunicationType(Object value){
+		repast.simphony.relogo.ReLogoModel.getInstance().setModelParam("communicationType",value);
 	}
 
 	/**

@@ -16,21 +16,29 @@ class UserObserver extends ReLogoObserver{
 		@Setup
 		def setup(){
 			clearAll()
-			setDefaultShape(Bee,"turtle")
-			createBees(numBees){
-				setxy (0, 0)
-			}
-            ask(bees()){
-				setVision(insectVision)
-			}
-			for (bee in bees()) {
-				createFollowers(numFollowers){
-					setxy(0,0)
+			if(communicationType == "Passive Action Recognizition") {
+				setDefaultShape(PassiveActionBee,"turtle")
+				createPassiveActionBees(numBees){
+					setxy (0, 0)
 				}
-				ask(followers()){
-					if(leader == null) {
-						setLeader(bee)
+	            ask(passiveActionBees()){
+					setVision(insectVision)
+				}
+				for (bee in passiveActionBees()) {
+					createFollowers(numFollowers){
+						setxy(0,0)
 					}
+					ask(followers()){
+						if(leader == null) {
+							setLeader(bee)
+						}
+					}
+				}
+			}
+			else if(communicationType == "Implicit Communication") {
+				setDefaultShape(ImplicitBee,"turtle")
+				createImplicitBees(numBees){
+					setxy (0, 0)
 				}
 			}
 
@@ -50,14 +58,11 @@ class UserObserver extends ReLogoObserver{
 	
 		@Go
 		def go(){
-			ask(followers()){
-				step()
-			}
-			ask(bees()){
-				step()
+			for(bee in bees()){
+				bee.step()
 			}
 			ask(patches()){
-				setPcolor(scaleColor(105,honey,0,12))
+				recolorPatch()
 			}
 			def noPower = true
 			for (bee in bees()) {
@@ -66,6 +71,9 @@ class UserObserver extends ReLogoObserver{
 				}
 			}
 			if(noPower == true) {
+				stop()
+			}
+			if(collectedHoney() == 100) {
 				stop()
 			}
 		}

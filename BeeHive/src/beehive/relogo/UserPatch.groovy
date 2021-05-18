@@ -12,14 +12,35 @@ import beehive.ReLogoPatch;
 
 class UserPatch extends ReLogoPatch{
 
-	
+	def flowers = new LinkedHashSet<ReLogoPatch>()
+	def emptyFlowers = new LinkedHashSet<ReLogoPatch>()
 	
     @Diffusible
 	double honey = 0
+	double level = 0
+
 	
 	def recolorPatch(){
+		if(level == 0) {
+			flowers = new LinkedHashSet<ReLogoPatch>()
+			emptyFlowers = new LinkedHashSet<ReLogoPatch>()
+		}
+		else {
+			level--
+		}
+		
+		if(honey != 0) {
 			setPcolor(scaleColor(105,honey,0,12))
+		}
+		if(level > 0) {
+			setPcolor(scaleColor(yellow(),level,0,40))
+		}
 	}
+	
+	def setLevel(int level) {
+		this.level = level
+	}
+	
 	
 	
 }
