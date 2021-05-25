@@ -43,13 +43,19 @@ class UserObserver extends ReLogoObserver{
 			}
 
 			def closePatches = patch(0,0).inRadius(patches(), 10)
-			def distancePatches = patches()
-			for(p in closePatches) {
-				p.other(distancePatches)
+
+            def num = 0
+			while(num < 10) {
+				def x = randomPxcor()
+				def y = randomPycor()
+				if(!(patch(x,y) in closePatches)) {
+					patch(x,y).honey = 10
+					num ++
+				}
+
+
 			}
-			def P = nOf(10,distancePatches) 
-			ask(P){
-				honey = 10
+			ask(patches()){
 				recolorPatch()
 			}
 			

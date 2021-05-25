@@ -24,6 +24,9 @@ class PassiveActionBee extends Bee {
 			for(bee in passiveActionBees()) {
 				if(!bee.equals(this)) {
 					if(this.distance(bee) < vision) {
+						if((bee.flowers != this.flowers) || (bee.emptyFlowers != this.emptyFlowers)){
+							update++
+						}
 						for(flower in this.flowers) {
 							if(!bee.emptyFlowers.contains(flower)) {
 								if(!bee.flowers.contains(flower)) {
@@ -106,9 +109,19 @@ class PassiveActionBee extends Bee {
 					carriedHoney += 1
 					collectedHoney += 1
 					patchHere().honey -= 1
+					if (!(this in patchHere().arrivedBees)) {
+						patchHere().arrivedBees.add(this)
+						patchHere().arrivals++
+					}
+					if(!(patchHere() in this.arrivedFlowers)) {
+						arrivedFlowers.add(patchHere())
+						coverage++
+					}
 					currentTask = "return"
 				}
 				else {
+					flowers.remove(patchHere())
+					emptyFlowers.add(patchHere())
 					currentTask = "searching"
 				}
 			}

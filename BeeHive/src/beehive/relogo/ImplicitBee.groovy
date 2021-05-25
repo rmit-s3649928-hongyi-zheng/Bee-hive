@@ -18,8 +18,16 @@ class ImplicitBee extends Bee {
 	{
 		setColor(15)
 		if(power > 0) {
-			power -= powerusage			
+			power -= powerusage
+			
+			
+						
 			if(patchHere().level > 0) {
+				if((patchHere().flowers != this.flowers) || (patchHere().emptyFlowers != this.emptyFlowers)){
+					update++
+				}
+				
+				
 				for(flower in patchHere().flowers) {
 					if(!this.emptyFlowers.contains(flower)) {
 						if(!this.flowers.contains(flower)) {
@@ -39,7 +47,7 @@ class ImplicitBee extends Bee {
 			
 			if((flowers.size() != 0) || (emptyFlowers.size() != 0)){
 				if((patchHere().honey == 0) && (patchHere() != patch(0,0))) {
-				    patchHere().setLevel(10)
+				    patchHere().setLevel(20)
 					patchHere().flowers = new LinkedHashSet<ReLogoPatch>()
 					for(flower in flowers) {
 						patchHere().flowers.add(flower)
@@ -104,6 +112,14 @@ class ImplicitBee extends Bee {
 					carriedHoney += 1
 					collectedHoney += 1
 					patchHere().honey -= 1
+					if (!(this in patchHere().arrivedBees)) {
+						patchHere().arrivedBees.add(this)
+						patchHere().arrivals++
+					}
+					if(!(patchHere() in this.arrivedFlowers)) {
+						arrivedFlowers.add(patchHere())
+						coverage++
+					}
 					currentTask = "return"
 				}
 				else {

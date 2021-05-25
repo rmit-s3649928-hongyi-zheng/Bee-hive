@@ -9,16 +9,19 @@ import repast.simphony.relogo.ast.Diffusible;
 import repast.simphony.relogo.schedule.Go;
 import repast.simphony.relogo.schedule.Setup;
 import beehive.ReLogoPatch;
+import beehive.ReLogoTurtle
 
 class UserPatch extends ReLogoPatch{
 
 	def flowers = new LinkedHashSet<ReLogoPatch>()
 	def emptyFlowers = new LinkedHashSet<ReLogoPatch>()
+	def arrivedBees = new LinkedHashSet<ReLogoTurtle>()
 	
     @Diffusible
 	double honey = 0
 	double level = 0
-
+	double arrivals = 0
+    
 	
 	def recolorPatch(){
 		if(level == 0) {
@@ -35,12 +38,14 @@ class UserPatch extends ReLogoPatch{
 		if(level > 0) {
 			setPcolor(scaleColor(yellow(),level,0,40))
 		}
+		if(honey == 0) {
+			setPcolor(10)
+		}
 	}
 	
 	def setLevel(int level) {
 		this.level = level
 	}
-	
 	
 	
 }

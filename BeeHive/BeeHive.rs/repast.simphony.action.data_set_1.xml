@@ -11,14 +11,14 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-381504396</hashCode>
+    <hashCode>1963351280</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map">
     <entry>
-      <string>Collected Honey</string>
+      <string>TotalHoney</string>
       <repast.simphony.data2.engine.MethodDataSourceDefinition>
-        <id>Collected Honey</id>
+        <id>TotalHoney</id>
         <className>beehive.relogo.Bee</className>
         <methodName>getCollectedHoney</methodName>
         <aggType>SUM</aggType>

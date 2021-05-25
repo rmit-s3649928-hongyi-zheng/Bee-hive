@@ -1045,6 +1045,27 @@ public class ReLogoTurtle extends BaseTurtle{
 	}
 
 	/**
+	 * Returns the value from the getArrivedBees() method of the underlying patch.
+	 * 
+	 * @return getArrivedBees() of type java.lang.Object
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.UserPatch")
+	public java.lang.Object getArrivedBees(){
+		beehive.relogo.UserPatch p = (beehive.relogo.UserPatch)patchHere();
+		return p.getArrivedBees();
+	}
+
+	/**
+	 * Calls the setArrivedBees(java.lang.Object) method of the underlying patch.
+	 * 
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.UserPatch")
+	public void setArrivedBees(java.lang.Object value){
+		beehive.relogo.UserPatch p = (beehive.relogo.UserPatch)patchHere();
+		p.setArrivedBees(value);
+	}
+
+	/**
 	 * Returns the value from the getHoney() method of the underlying patch.
 	 * 
 	 * @return getHoney() of type double
@@ -1084,6 +1105,27 @@ public class ReLogoTurtle extends BaseTurtle{
 	public void setLevel(double value){
 		beehive.relogo.UserPatch p = (beehive.relogo.UserPatch)patchHere();
 		p.setLevel(value);
+	}
+
+	/**
+	 * Returns the value from the getArrivals() method of the underlying patch.
+	 * 
+	 * @return getArrivals() of type double
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.UserPatch")
+	public double getArrivals(){
+		beehive.relogo.UserPatch p = (beehive.relogo.UserPatch)patchHere();
+		return p.getArrivals();
+	}
+
+	/**
+	 * Calls the setArrivals(double) method of the underlying patch.
+	 * 
+	 */
+	@ReLogoBuilderGeneratedFor("beehive.relogo.UserPatch")
+	public void setArrivals(double value){
+		beehive.relogo.UserPatch p = (beehive.relogo.UserPatch)patchHere();
+		p.setArrivals(value);
 	}
 
 	/**
